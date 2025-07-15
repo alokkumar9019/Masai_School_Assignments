@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .gallery {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    section {
+      margin: 20px;
+      max-width: 250px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Image Gallery</h1>
+
+  <div class="gallery">
+    <section>
+      <img src="https://thumbs.dreamstime.com/b/autumn-nature-landscape-colorful-forest-autumn-nature-landscape-colorful-forest-morning-sunlight-131400332.jpg" alt="A scenic view of nature with trees and mountains." />
+      <a href="https://en.wikipedia.org/wiki/Nature" target="_blank">Learn about Nature</a>
+    </section>
+
+    <section>
+      <img src="https://www.azoquantum.com/images/Article_Images/ImageForArticle_549_17288689857007544.jpg" alt="An image of outer space with stars and planets." />
+      <a href="https://www.nasa.gov/" target="_blank">Explore Space at NASA</a>
+    </section>
+
+    <section>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsY1hFDgjqm1HEYgFo97waarCB04XCo-Zpg&s" alt="Modern technological gadgets like a laptop and smartphone." />
+      <a href="https://www.techcrunch.com/" target="_blank">Read Tech News</a>
+    </section>
+  </div>
+
+</body>
+</html>
