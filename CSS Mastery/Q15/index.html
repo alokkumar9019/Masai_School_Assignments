@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about-me" id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate laboriosam ipsa labore rerum veniam ipsum quibusdam impedit. Animi, porro! Sint vel, vitae odit ab quaerat autem asperiores nisi quod veniam.</p>
+      <img src="https://avatars.githubusercontent.com/u/94864271?v=4" alt="A picture of me" />
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <h3>CryptoCurrency Tracker</h3>
+      <img src="" alt="screenshot of project" />
+      <p>Track cryptocurrency prices with real-time updates...</p>
+      <a href="#">View Project</a>
+      <ul>
+        <li>Technologies: HTML, CSS, JavaScript</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <img src="" alt="screenshot of project" />
+      <p>Personal website built using HTML/CSS showcasing projects...</p>
+      <a href="#">View Project</a>
+      <ul>
+        <li>Technologies: HTML, CSS, JavaScript</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message"></textarea>
+
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Portfolio</p>
+    <p>Follow me on 
+      <a href="#">Twitter</a> | 
+      <a href="#">Instagram</a>
+    </p>
+  </footer>
+</body>
+</html>
