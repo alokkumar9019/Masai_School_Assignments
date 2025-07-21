@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center;     /* Center items vertically */
+  gap: 20px;
+  height: 200px;
+  width: 80%;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+}
+
+.item {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+}

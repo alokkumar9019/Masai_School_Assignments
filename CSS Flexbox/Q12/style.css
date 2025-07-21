@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  gap: 20px;
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.row-layout {
+  flex-direction: row; 
+}
+
+.column-layout {
+  flex-direction: column; 
+}
+
+.item {
+  background-color: #2196F3;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
