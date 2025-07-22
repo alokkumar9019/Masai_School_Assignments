@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #a080b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  width: 80%;
+  height: 80vh;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 2px solid black;
+}
+
+/* Blue Box - Bottom left */
+.item1 {
+  background-color: blue;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+/* Brown Box - Bottom middle */
+.item5 {
+  background-color: brown;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+/* Red Box - Top left and middle */
+.item4 {
+  background-color: orangered;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+/* Pink Tall Box - Right side */
+.item6 {
+  background-color: pink;
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
