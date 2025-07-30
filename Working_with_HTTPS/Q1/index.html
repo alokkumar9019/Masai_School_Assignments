@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Search Page</title>
+  <style>
+    .grid { display: flex; flex-wrap: wrap; gap:16px; }
+    .product { border:1px solid #ddd; padding:10px; width:200px; text-align:center; }
+    .loading, .error { margin: 10px 0; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <h2>Product Search</h2>
+
+  <label>
+    Category:
+    <select id="category">
+      <option value="electronics">Electronics</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="men's clothing">Men's Clothing</option>
+      <option value="women's clothing">Women's Clothing</option>
+    </select>
+  </label>
+  
+  <label>
+    Min Price:
+    <input type="number" id="minprice"/>
+  </label>
+  <label>
+    Max Price:
+    <input type="number" id="maxprice"/>
+  </label>
+  <button id="searchBtn">Search</button>
+
+  <div id="status"></div>
+  <div id="results" class="grid"></div>
+
+  <script>
+    const categoryEl = document.getElementById('category');
+    const minPriceEl = document.getElementById('minprice');
+    const maxPriceEl = document.getElementById('maxprice');
+    const searchBtn = document.getElementById('searchBtn');
+    const resultsEl = document.getElementById('results');
+    const statusEl = document.getElementById('status');
+
+    function buildApiUrl() {
+      // Fetch all or by category
+      const category = categoryEl.value;
+      return `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`;
+    }
+
+    async function fetchAndDisplayProducts() {
+      const url = buildApiUrl();
+      resultsEl.innerHTML = '';
+      statusEl.textContent = 'Loading...';
+      statusEl.className = 'loading';
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Network response was not ok');
+        let products = await res.json();
+
+        // Price filter (client-side)
+        const minPrice = parseFloat(minPriceEl.value) || 0;
+        const maxPrice = parseFloat(maxPriceEl.value) || Number.MAX_VALUE;
+        products = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+        if (products.length === 0) {
+          statusEl.textContent = 'No products found.';
+          statusEl.className = 'error';
+        } else {
+          statusEl.textContent = '';
+          resultsEl.innerHTML = products.map(product => `
+            <div class="product">
+              <img src="${product.image}" alt="${product.title}" width="120"/><br>
+              <strong>${product.title}</strong><br>
+              $${product.price}
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        statusEl.textContent = 'Failed to fetch products.';
+        statusEl.className = 'error';
+      }
+    }
+
+    searchBtn.addEventListener('click', fetchAndDisplayProducts);
+  </script>
+</body>
+</html>
