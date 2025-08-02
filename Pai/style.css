@@ -1,0 +1,30 @@
+h1{
+    text-align: center;;
+    color: #333;
+}
+
+#ideaForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+}
+
+#ideasContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ideaCard{
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+
+}
