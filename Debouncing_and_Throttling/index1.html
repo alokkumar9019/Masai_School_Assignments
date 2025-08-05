@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Movie Search</h2>
+    <input type="text" name="text" id="search-box" placeholder="Type Movie Name ....">
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    let searchBox=document.getElementById('search-box');
+    let result=document.getElementById('result');
+    let debouncing;
+
+    searchBox.addEventListener("input",()=>{
+        clearTimeout(debouncing)
+
+        debouncing=setTimeout(()=>{
+            let query=searchBox.value.trim();
+            if(query.length===0){
+                result.innerHTML=""
+                return;
+            }
+
+            fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=e0bfcd9e&s=${encodeURIComponent(query)}`)
+            .then((res)=>res.json())
+            .then((data)=>{
+                if(data.Response==="True"){
+                    const movie=data.Search.map(movie => `<div class="movie-title">${movie.Title}</div>`).join('');
+                    result.innerHTML=movie;
+                }else{
+                    result.innerHTML=`<div>No results found</div>`
+                }
+            })
+            .catch(error=>{
+                console.log('Error fetching data:',error);
+                result.innerHTML=`<div>Error fetching data.</div>`
+            })
+        },400)
+    })
+</script>

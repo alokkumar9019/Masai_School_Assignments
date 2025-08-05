@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Picsum Slider Image</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    img {
+      width: 600px;
+      height: 400px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 20px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #slideNumber {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Picsum Image Slider</h2>
+  <img id="sliderImage" src="https://picsum.photos/600/400?random=1" alt="Random Image" />
+  <div>
+    <button id="prevButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
+  <div id="slideNumber">Slide 1</div>
+
+  <script>
+    let currentSlide = 1;
+    const imageElement = document.getElementById('sliderImage');
+    const slideIndicator = document.getElementById('slideNumber');
+
+    let lastClickTimestamp = 0;
+    let rapidClickCounter = 0;
+
+    function updateImage(slideNumber) {
+      imageElement.src = `https://picsum.photos/600/400?random=${slideNumber}`;
+      slideIndicator.textContent = `Slide ${slideNumber}`;
+    }
+
+    function handleThrottledNavigation(action) {
+      const currentTime = Date.now();
+
+      if (currentTime - lastClickTimestamp < 1000) {
+        rapidClickCounter++;
+        if (rapidClickCounter > 3) {
+          alert("Chill chill, loading it!!");
+          return;
+        }
+        return;
+      }
+
+      lastClickTimestamp = currentTime;
+      rapidClickCounter = 1;
+
+      if (action === 'next') {
+        currentSlide++;
+      } else if (action === 'prev' && currentSlide > 1) {
+        currentSlide--;
+      }
+
+      updateImage(currentSlide);
+    }
+
+    document.getElementById('nextButton').addEventListener('click', () => {
+      handleThrottledNavigation('next');
+    });
+
+    document.getElementById('prevButton').addEventListener('click', () => {
+      handleThrottledNavigation('prev');
+    });
+  </script>
+
+</body>
+</html>

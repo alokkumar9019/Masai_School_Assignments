@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library System</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Library Management</h1>
+
+  <!-- BOOKS FILTERS & CONTROLS -->
+  <section id="books-section">
+    <h2>Books</h2>
+    <div class="filters">
+      <input type="text" id="book-search" placeholder="Search by title or author"/>
+
+      <select id="book-genre-filter">
+        <option value="">All Genres</option>
+        <!-- Dynamically filled -->
+      </select>
+
+      <select id="book-availability-filter">
+        <option value="">All</option>
+        <option value="true">Available</option>
+        <option value="false">Unavailable</option>
+      </select>
+
+      <select id="book-sort">
+        <option value="title-asc">Title &#8593;</option>
+        <option value="title-desc">Title &#8595;</option>
+        <option value="author-asc">Author &#8593;</option>
+        <option value="author-desc">Author &#8595;</option>
+        <option value="year-asc">Year &#8593;</option>
+        <option value="year-desc">Year &#8595;</option>
+      </select>
+    </div>
+
+    <!-- Books CRUD FORMS -->
+    <form id="book-form">
+      <input type="hidden" id="book-id"/>
+      <input type="text" id="book-title" placeholder="Title" required/>
+      <input type="text" id="book-author" placeholder="Author" required/>
+      <input type="text" id="book-genre" placeholder="Genre" required/>
+      <input type="number" id="book-year" placeholder="Year" required/>
+      <select id="book-available">
+        <option value="true">Available</option>
+        <option value="false">Unavailable</option>
+      </select>
+      <button type="submit">Add/Update Book</button>
+    </form>
+
+    <div id="books-list"></div>
+    <div id="books-pagination"></div>
+  </section>
+
+  <hr/>
+
+  <!-- MEMBERS FILTERS & CONTROLS -->
+  <section id="members-section">
+    <h2>Members</h2>
+    <div class="filters">
+      <input type="text" id="member-search" placeholder="Search by name"/>
+      <select id="member-status-filter">
+        <option value="">All</option>
+        <option value="true">Active</option>
+        <option value="false">Inactive</option>
+      </select>
+      <select id="member-sort">
+        <option value="name-asc">Name &#8593;</option>
+        <option value="name-desc">Name &#8595;</option>
+        <option value="date-asc">Join Date &#8593;</option>
+        <option value="date-desc">Join Date &#8595;</option>
+      </select>
+    </div>
+
+    <!-- Members CRUD FORMS -->
+    <form id="member-form">
+      <input type="hidden" id="member-id"/>
+      <input type="text" id="member-name" placeholder="Name" required/>
+      <input type="date" id="member-date" required/>
+      <select id="member-active">
+        <option value="true">Active</option>
+        <option value="false">Inactive</option>
+      </select>
+      <button type="submit">Add/Update Member</button>
+    </form>
+
+    <div id="members-list"></div>
+    <div id="members-pagination"></div>
+  </section>
+
+ <!-- <script src="app.js"></script> -->
+</body>
+</html>
